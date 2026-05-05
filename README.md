@@ -128,9 +128,8 @@ If the device is removed (temperature drop), the system enters deep sleep to con
 
 ## 📦 Repository Contents
 
-* `hardware/` — KiCad schematic & PCB files
+* `finalprojsub/` — KiCad schematic & PCB files
 * `images/` — renders and diagrams
-* `docs/` — project documentation
 * `bom/` — bill of materials
 * `3D-model/` — 3D assets
 

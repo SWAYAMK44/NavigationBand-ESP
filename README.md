@@ -185,6 +185,14 @@ Electronic Systems Packaging Project
 
 ---
 
+## Acknowledement
+
+I would like to express my sincere gratitude to my college, International Institute of Information Technology (IIIT-B), for providing the resources and support to complete this project.
+
+I am especially grateful to my professor, Dr. Kurian Polachan, for their invaluable guidance, encouragement, and expertise throughout the development of this work.
+
+---
+
 ## 📌 Note
 
 This project demonstrates PCB-level system integration, power management, and embedded hardware design for wearable assistive technology.

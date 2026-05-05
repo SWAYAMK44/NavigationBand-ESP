@@ -1,6 +1,7 @@
 # Navigator Band — Wearable Assistive System
 
 ![PCB Front](images/Front-3d.png)
+*Top view of the assembled PCB showing ESP32-S3 module and sensor placement*
 
 A compact, wrist-worn assistive device designed to provide real-time obstacle awareness through haptic and audio feedback — without relying on a smartphone, internet, or external infrastructure.
 
@@ -20,7 +21,6 @@ The system is designed to be:
 ---
 
 ## ⚙️ System Architecture
-
 
 
 The design is divided into four major functional blocks:
@@ -58,19 +58,14 @@ The design is divided into four major functional blocks:
 ## 🧾 Schematic
 
 ![Schematic](images/root-schematic.png)
-
-Complete system-level schematic showing power, MCU, sensors, and feedback integration.
+*Complete system schematic showing power distribution, MCU, sensors, and feedback circuits*
 
 ---
 
 ## 🧩 PCB Layout
 
 ![PCB Placement](images/Placement.png)
-
-* 2-layer PCB (40mm × 36mm)
-* Compact placement optimized for wearable form factor
-* Logical block separation (power, MCU, sensors, feedback)
-* Short signal paths and clean routing
+*Component placement optimized for compact wearable design and logical block separation*
 
 ---
 
@@ -79,10 +74,12 @@ Complete system-level schematic showing power, MCU, sensors, and feedback integr
 ### Front View
 
 ![3D Front](images/Front-3d.png)
+*Front 3D render of the PCB*
 
 ### Back View
 
 ![3D Back](images/Back-3d.png)
+*Back 3D render showing routing and ground plane*
 
 ---
 
@@ -90,12 +87,12 @@ Complete system-level schematic showing power, MCU, sensors, and feedback integr
 
 * Battery voltage range: **3.0V – 4.2V (LiPo)**
 * Regulated to **3.3V using XC6206 LDO**
-* Low quiescent current design for wearable efficiency
+* Designed for low quiescent current operation
 
 Power flow:
 
 ```
-USB-C (5V) → MCP73831 → LiPo Battery → LDO → 3.3V rail
+USB-C (5V) → MCP73831 → LiPo Battery → XC6206 → 3.3V rail
 ```
 
 ---
@@ -115,42 +112,76 @@ If the device is removed (temperature drop), the system enters deep sleep to con
 
 ---
 
+## 🧠 Key Design Decisions
+
+* Used **ESP32-S3** to integrate BLE, I2S, and processing in a single chip
+* Selected **XC6206 LDO** for ultra-low quiescent current
+* Implemented **shared I2C bus** to reduce routing complexity
+* Maintained **antenna keepout region** for RF performance
+* Chose **DRV2605L** for advanced haptic control without custom PWM
+
+---
+
+## ⚠️ Challenges
+
+* Routing a dense **2-layer PCB within 40 × 36 mm constraints**
+* Managing power stability with **battery voltage variation (3.0V–4.2V)**
+* Ensuring signal integrity on a **shared I2C bus**
+* Optimizing placement for **wearable ergonomics and compactness**
+
+---
+
+## 📐 Design Constraints
+
+* PCB size: **40mm × 36mm**
+* Layers: **2-layer design**
+* Supply: **LiPo (3.0V – 4.2V)**
+* Output: **3.3V regulated rail**
+
+---
+
 ## 🧩 PCB Design Highlights
 
-* 2-layer PCB (40mm × 36mm)
 * Full ground plane on bottom layer
 * Proper decoupling capacitor placement near ICs
-* Clean separation of power and signal routing
-* RF antenna keepout maintained for ESP32
-* ERC & DRC verified (0 errors, 0 warnings)
+* Clean routing with minimal vias
+* Separation of power and signal paths
+* ERC & DRC verified (**0 errors, 0 warnings**)
+
+---
+
+## 🛠️ How to Open
+
+1. Install **KiCad (v7 or later)**
+2. Clone this repository
+3. Open the `.kicad_pro` file
+4. Explore schematic and PCB layout
 
 ---
 
 ## 📦 Repository Contents
 
-* `finalprojsub/` — KiCad schematic & PCB files
+* `hardware/` — KiCad schematic & PCB files
 * `images/` — renders and diagrams
+* `docs/` — project documentation
 * `bom/` — bill of materials
 * `3D-model/` — 3D assets
 
 ---
 
-## 🎯 Design Goals
-
-* Compact wearable form factor
-* Low power consumption
-* Reliable sensor fusion
-* Intuitive non-visual feedback system
-* Clean and manufacturable PCB design
-
----
-
 ## 🚧 Future Improvements
 
-* Replace LDO with buck-boost converter for full battery utilization
+* Replace LDO with **buck-boost converter** for full battery utilization
 * Add enclosure design for wearable ergonomics
 * Improve power efficiency under dynamic load
 * Add BLE firmware support and OTA updates
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+👉 [View License](LICENSE)
 
 ---
 
@@ -164,4 +195,4 @@ Electronic Systems Packaging Project
 
 ## 📌 Note
 
-This project demonstrates PCB-level system integration, power management, and embedded hardware architecture for wearable assistive technology.
+This project demonstrates PCB-level system integration, power management, and embedded hardware design for wearable assistive technology.

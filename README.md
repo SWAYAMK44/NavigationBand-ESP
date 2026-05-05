@@ -169,14 +169,6 @@ If the device is removed (temperature drop), the system enters deep sleep to con
 
 ---
 
-## 🚧 Future Improvements
-
-* Replace LDO with **buck-boost converter** for full battery utilization
-* Add enclosure design for wearable ergonomics
-* Improve power efficiency under dynamic load
-* Add BLE firmware support and OTA updates
-
----
 
 ## 📄 License
 

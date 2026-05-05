@@ -21,7 +21,7 @@ The system is designed to be:
 
 ## ⚙️ System Architecture
 
-![System Diagram](images/Layout.png)
+
 
 The design is divided into four major functional blocks:
 
